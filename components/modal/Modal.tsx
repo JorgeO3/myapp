@@ -8,16 +8,12 @@ export interface TValues {
   value: string;
 }
 
-
 type Props = PropsWithChildren<{
   visible: boolean;
   onPress: () => void;
   setTransferList: React.Dispatch<React.SetStateAction<TValues[]>>;
   transferList: TValues[];
 }>
-
-
-
 
 export default function PopUp({ visible, onPress, setTransferList, transferList, }: Props) {
   const [note, setNote] = React.useState('')
@@ -70,7 +66,7 @@ export default function PopUp({ visible, onPress, setTransferList, transferList,
                   <Text style={styles.save}>Save</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => console.log('Save')}
+                  onPress={() => onPress() }
                   style={styles.cancelContainer}
                 >
                   <Text style={styles.cancel}>Cancel</Text>

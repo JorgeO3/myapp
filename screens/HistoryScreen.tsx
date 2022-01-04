@@ -1,16 +1,27 @@
-import { DrawerScreenProps } from '@react-navigation/drawer';
-import * as React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
-interface Props extends  DrawerScreenProps<any, any> {};
+import { DrawerScreenProps } from '@react-navigation/drawer';
+import { SafeAreaView, StyleSheet, View, FlatList } from 'react-native';
+import { MainDrawerParamList, MainRoutes } from '../navigation/routes';
+import Item from '../components/Item/Item';
+import { useData } from '../hooks/useData';
+
+
+interface Props extends  DrawerScreenProps<MainDrawerParamList, MainRoutes.History> {};
 
 export default function HistoryScreen({ route }: Props) {
   let data = route.params;
 
+  const { transferList } = useData();
+
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.contentWrapper}>
-        <Text>ajshdhjakshdk</Text>
+        <FlatList
+          data={transferList}
+          keyExtractor={(item, index) => `${item.note}-${index}`}
+          renderItem={({ item }) => <Item note={item.note} value={item.value} />}
+        />
       </SafeAreaView>
     </View>
   );

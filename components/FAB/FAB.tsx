@@ -1,7 +1,6 @@
 import React from "react";
 import { FloatingAction } from "react-native-floating-action";
 import { PropsWithChildren } from "react";
-import { color } from "react-native-reanimated";
 
 type Props = PropsWithChildren<{
   onPress: () => void;
@@ -10,25 +9,25 @@ type Props = PropsWithChildren<{
 
 export default function FloatingActionButton({ onPress, visible }: Props) {
   const [state, setState] = React.useState(false);
-  const [action, setAction] = React.useState(false)
+  const [action, setAction] = React.useState(false);
   const actions = [
     {
       text: "Consignacion",
-      icon: require("/home/Jorge/github/fork/appv1/assets/icons/plus-icon.png"),
+      icon: require("/home/jorge/Documents/myapp/assets/icons/plus-icon.png"),
       name: "plus",
       position: 2,
       color: "#0041c4ff",
     },
     {
       text: "Compra",
-      icon: require("/home/Jorge/github/fork/appv1/assets/icons/minus-icon.png"),
+      icon: require("/home/jorge/Documents/myapp/assets/icons/minus-icon.png"),
       name: "close",
       position: 1,
       color: "#0041c4ff",
     },
   ];
-  const closeIcon = require("/home/Jorge/github/fork/appv1/assets/icons/open-icon.png");
-  const openIcon = require("/home/Jorge/github/fork/appv1/assets/icons/close-icon.png");
+  const closeIcon = require("/home/jorge/Documents/myapp/assets/icons/open-icon.png");
+  const openIcon = require("/home/jorge/Documents/myapp/assets/icons/close-icon.png");
   const shadow = {
     shadowOpacity: 0.35,
     shadowOffset: { width: 0, height: 5 },
